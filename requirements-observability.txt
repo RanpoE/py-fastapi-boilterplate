@@ -1,0 +1,10 @@
+# Optional: AtticAI OpenTelemetry SDK.
+#
+# Deliberately NOT in requirements.txt. It installs from a private repo, and
+# a git+https dependency there makes `pip install -r requirements.txt` fail
+# outright (exit 128 on the clone) for anyone without access — which, for a
+# public repo, is everyone. The whole install aborts, not just this package.
+#
+# The container installs this file on top of requirements.txt. Locally it is
+# opt-in: install it only if you want the app instrumented on your machine.
+attic-otel @ git+https://github.com/AtticAIInc/faramir.git@otel-py-v0.7.0#subdirectory=sdk/attic-otel-py
